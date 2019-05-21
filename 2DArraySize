@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Size
 {
-	  public static int[][] selectSize()
+	  public static String[][] selectSize()
 	  {
 		  Scanner reader = new Scanner (System.in);
 		  int size = 0;
@@ -30,20 +30,20 @@ public class Size
 		  }
 		  if (size == 1)
 		  {
-			  int[][] grid = new int[5][5];
+			  String[][] grid = new String[7][7];	//+2 to each array for invisible boarder on all sides
 			  return grid;
 	 	  }
 		  if (size == 2)
 		  {
-			  int[][] grid = new int[10][10];
+			  String[][] grid = new String[12][12];
 			  return grid;
 		  }
 		  if (size == 3)
 		  {
-			  int[][] grid = new int[15][15];
+			  String[][] grid = new String[17][17];
 			  return grid;
 		  }
-		  int[][] grid = new int[0][0];
+		  String[][] grid = new String[0][0];
 		  return grid;
 	  }
 }
