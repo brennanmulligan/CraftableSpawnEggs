@@ -5,20 +5,15 @@ public class Snake {
     public static void main(String[] args) throws InterruptedException{
 
         Scanner test = new Scanner(System.in);
+        int frameNumber = 1;
 
-        // print frame
-        System.out.println("1     ");
-        // wait .5 seconds
-        Thread.sleep(500);
-        // clear the screen
-        clear();
-        System.out.println(" 1    ");
-        Thread.sleep(500);
-        clear();
-        System.out.println("  1   ");
-        Thread.sleep(500);
-        clear();
-        System.out.println("   1  ");
+        //Test:
+        while(true){
+            System.out.println("Frame" + frameNumber);
+            Thread.sleep(500);
+            frameNumber++;
+            clear();
+        }
 
     }
 
