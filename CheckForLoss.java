@@ -7,16 +7,15 @@ package array;
 
 public class CheckForLoss
 {
-	public static void outOfBounds (int[][] grid, int[][] pos)
+	public static boolean outOfBounds (int[][] grid, int row, int col)	//grid of coordinates/position of snek
 	{
 		for (int i = 0; i < grid.length - 1; i++)
 		{
 			for (int j = 0; j < grid[i].length - 1; j++)
 			{
-				if (pos == null)
+				if (grid[row][col] == null)	//if snek touches null border, returns TRUE for outOfBounds
 				{
-					System.out.println("Game Over!");
-					System.exit(0);
+					return true;
 				}
 			}
 		}
