@@ -13,32 +13,24 @@ public class DirectionPicker extends KeyAdapter
 {
 	//Override allows the method to continuously happen
     @Override
-    public void keyPressed(KeyEvent k) {
+    public String getDirection(KeyEvent k) {
 
         int key = k.getKeyCode();
 
         if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
-            leftDirection = true;
-            upDirection = false;
-            downDirection = false;
+            return "left";
         }
 
         if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
-            rightDirection = true;
-            upDirection = false;
-            downDirection = false;
+            return "right";
         }
 
         if ((key == KeyEvent.VK_UP) && (!downDirection)) {
-            upDirection = true;
-            rightDirection = false;
-            leftDirection = false;
+			return "up";
         }
 
         if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
-            downDirection = true;
-            rightDirection = false;
-            leftDirection = false;
+            return "down";
         }
     }
 }
