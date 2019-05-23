@@ -5,11 +5,12 @@ import org.jnativehook.keyboard.NativeKeyListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Ligma
+public class Snek
 		implements NativeKeyListener {
 
 	public static void main(String[] args) {
 
+		// Turns off the red output and keeps the cmd clear of gross stuff.
 		// Get the logger for "org.jnativehook" and set the level to off.
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
 		logger.setLevel(Level.OFF);
@@ -23,7 +24,7 @@ public class Ligma
 			System.out.println("Error");
 		}
 
-		GlobalScreen.addNativeKeyListener(new Ligma());
+		GlobalScreen.addNativeKeyListener(new Snek());
 	}
 
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~

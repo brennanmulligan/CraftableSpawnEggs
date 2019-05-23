@@ -120,7 +120,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558634903944" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558635008407" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/jnativehook-2.1.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -144,8 +144,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Ligma" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ligma" />
+    <configuration name="Snek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Snek" />
       <module name="KeyDemo" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,7 +153,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Ligma" />
+        <item itemvalue="Application.Snek" />
       </list>
     </recent_temporary>
   </component>
