@@ -1,94 +1,47 @@
-import java.util.*;
-import java.io.*;
-import java.awt.event.*;
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
+import static java.awt.event.KeyEvent.*;
 
 public class main
-		implements KeyListener {
+		implements NativeKeyListener {
 	
-	static char[] line = {' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' '};
-	
-	public static void main(String[] args)
-			throws InterruptedException {
-		
-		
-		while(true) {
-			
-			System.out.println(line);
-			Thread.sleep(150);
-			clear();
-		}
-	}
-	
-	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-	
-	/*
-	 * Handles user input
-	 */
-	public void keyReleased(KeyEvent e) {
-		
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-		
-			move(line, "RIGHT");
-			
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			
-			move(line, "LEFT");
-		}
-	}
-	
-	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-	
-	/*
-	 * Moves asterisk value in given direction
-	 */
-	public static char[] move(char[] arr, String direction) {
-		
-		int startLocation = 0;
-		
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i] == '*')
-				startLocation = i;
-		}
-		
-		if(direction.equals("RIGHT")) {
-			
-			arr[startLocation] = ' ';
-			arr[startLocation + 1] = '*';
-			
-		}else if(direction.equals("LEFT")) {
-			
-			arr[startLocation] = ' ';
-			arr[startLocation - 1] = '*';
-			
-		}
-		
-		return arr;
-	}
-	
-	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-	
-	/*
-	 * These don't do anything useful for this project, they're just have to be here because of superclass.
-	 */
-	public void keyTyped(KeyEvent e) {
-	
-	}
-	
-	public void keyPressed(KeyEvent e) {
-	
-	}
-	
-	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-	
-	public static void clear() {
+	public static void main(String[] args) {
 		
 		try {
-			
-			if(System.getProperty("os.name").contains("Windows"))
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			else
-				Runtime.getRuntime().exec("clear");
+			GlobalScreen.registerNativeHook();
+		} catch (NativeHookException ex) {
+			System.out.println("Error");
 		}
-		catch (IOException | InterruptedException ex) {}
 	}
+	
+	@Override
+	public void nativeKeyPressed(NativeKeyEvent e) {
+		
+		if(e.getKeyCode() == VK_RIGHT)
+			System.out.println("RIGHT");
+		
+		else if (e.getKeyCode() == VK_LEFT)
+			System.out.println("LEFT");
+		
+		else if (e.getKeyCode() == VK_UP)
+			System.out.println("UP");
+		
+		else if (e.getKeyCode() == VK_DOWN)
+			System.out.println("DOWN");
+	}
+	
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	@Override
+	//Essentially useless
+	public void nativeKeyReleased(NativeKeyEvent e) {
+	
+	}
+	
+	@Override
+	public void nativeKeyTyped(NativeKeyEvent e) {}
+	
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 }
