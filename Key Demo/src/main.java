@@ -19,16 +19,16 @@ public class main
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e) {
 		
-		if(e.getKeyCode() == VK_RIGHT)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 			System.out.println("RIGHT");
 		
-		else if (e.getKeyCode() == VK_LEFT)
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			System.out.println("LEFT");
 		
-		else if (e.getKeyCode() == VK_UP)
+		else if (e.getKeyCode() == KeyEvent.VK_UP)
 			System.out.println("UP");
 		
-		else if (e.getKeyCode() == VK_DOWN)
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN)
 			System.out.println("DOWN");
 	}
 	
