@@ -44,12 +44,19 @@ public class Snek
 			System.err.println("NativeHookException");
 		}
 		
+		
+		String direction = null;
+		boolean hasLost = false;
+		String[][] baord;
+		//board = setArray(board);
+		
+		
 
 		// Start Game Loop:
-		while(/*!hasLost*/ true) // TODO remove "true" later
+		while(!hasLost) // TODO remove "true" later
 		{
 			// updateFrame(board, direction);
-			// clear();
+			clear();
 			// printBoard(board);
 			// hasLost = outOfBounds();
 			Thread.sleep(150);
