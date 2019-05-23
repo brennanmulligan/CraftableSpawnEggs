@@ -27,11 +27,9 @@ public class Snek
 		// Disable Parent Handlers
 		logger.setUseParentHandlers(false);
 		// Thread that runs the NativeKeyListener
-		Thread thread = new Thread()
-		{
+		Thread thread = new Thread() {
 			@Override
-			public void run()
-			{
+			public void run() {
 				GlobalScreen.addNativeKeyListener(new Snek());
 			}
 		};
@@ -43,7 +41,7 @@ public class Snek
 			GlobalScreen.registerNativeHook();
 			thread.start();
 		} catch (NativeHookException ex) {
-			System.err.println("Error");
+			System.err.println("NativeHookException");
 		}
 		
 
