@@ -5,31 +5,33 @@ Method for snake that creates a 2d array for game. Allows user to choose from 3 
 */
 package array;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Size
 {
-	  public static String[][] selectSize()
+	public static String[][] selectSize()
 	  {
 		  Scanner reader = new Scanner (System.in);
 		  int size = 0;
-		  boolean isValid = false;
+		  boolean invalid = true;
 		  
-		  System.out.println("Choose size of game.\n\n1\tSmall\n2\tMedium\n3\tLarge");
-		  
-		  while (isValid == false)	//is false when input is incorrect
+		  while (invalid == true)
 		  {
-			  if (reader.hasNextInt() && reader.nextInt() > 0 && reader.nextInt() < 3)
+			  try 
 			  {
-				  isValid = true;
+				  System.out.println("Choose size of game.\n\n1\tSmall\n2\tMedium\n3\tLarge");
 				  size = reader.nextInt();
+				  invalid = false;
 			  }
-			  else
-			  {
-					System.out.println("Invalid response");
-					System.out.println("Choose size of game.\n\n1\tSmall\n2\tMedium\n3\tLarge");
-			  }
+				  catch (InputMismatchException e) 
+				  {
+				    System.out.println("Invalid value!");
+				reader.next(); // this consumes the invalid token
+				continue;
+				  }
 		  }
+		  
 		  if (size == 1)	//selects different sizes based upon user answer
 		  {
 			  String[][] grid = new String[7][7];	//+2 to each array for invisible boarder on all sides
