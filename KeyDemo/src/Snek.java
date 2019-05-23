@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 public class Snek
 		implements NativeKeyListener {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException{
 
 		// Turns off the red output and keeps the cmd clear of gross stuff.
 		// Get the logger for "org.jnativehook" and set the level to off.
@@ -18,13 +18,32 @@ public class Snek
 		// Don't forget to disable the parent handlers.
 		logger.setUseParentHandlers(false);
 
+		// Runs on a seperate thread than the rest of your program, so wont be blocked by the rest of your program (e.g. the main while loop)
+		Thread thread = new Thread()
+		{
+			@Override
+			public void run()
+			{
+				GlobalScreen.addNativeKeyListener(new Snek());
+			}
+		};
+
 		try {
 			GlobalScreen.registerNativeHook();
+			thread.start();
 		} catch (NativeHookException ex) {
 			System.out.println("Error");
 		}
 
-		GlobalScreen.addNativeKeyListener(new Snek());
+		// Write the rest of your program here. Yeah.
+		while(true)
+		{
+			System.out.println("Test");
+			try {
+				Thread.sleep(500);
+			}
+			catch(Exception ex) {}
+		}
 	}
 
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
