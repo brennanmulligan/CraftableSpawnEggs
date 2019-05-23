@@ -13,10 +13,13 @@ public class Snek
 	public static void main(String[] args)
 			throws InterruptedException {
 		
-		/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+		/*
 		 * This block of code handles the KeyListener so the user can input
 		 * the direction they want snek to go.
 		 */
+		
 		// Turns off the red output and keeps the cmd clear of gross stuff.
 		// Get the logger for "org.jnativehook" and set the level to off.
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
@@ -45,7 +48,7 @@ public class Snek
 		
 
 		// Start Game Loop:
-		while(/*!hasLost*/ true) // remove true later
+		while(/*!hasLost*/ true) // TODO remove "true" later
 		{
 			// updateFrame(board, direction);
 			// clear();
