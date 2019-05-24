@@ -324,7 +324,7 @@ public class Snek
 		else if ("DOWN".equals(direction))
 		{
 			directions[rowHead][colHead] = "DOWN";
-			if ((colHead + 1) == colMoney && (rowHead + 1) == rowMoney)
+			if (colHead == colMoney && (rowHead + 1) == rowMoney)
 				extend = true;
 
 			if (!(direction == null) && extend)
