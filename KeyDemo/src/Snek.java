@@ -252,9 +252,7 @@ public class Snek
 		int rowMoney = 0;
 		boolean extend = false;
 		boolean butt = false;
-		boolean noBody = true;
-
-		// String [][] directions = new String[grid.length][grid[0].length];			*Use this in main*
+		//boolean noBody = true;
 
 		// Find location of head, butt, and money
 		for (int row = 0; row < grid.length; row++)
@@ -277,15 +275,15 @@ public class Snek
 					colMoney = col;
 					rowMoney = row;
 				}
-				else if ("O".equals(grid[row][col]))
+				/*else if ("O".equals(grid[row][col]))
 				{
 					noBody = false;
-				}
+				}*/
 			}
 		}
 
 		//If the player has not moved yet, the snake will stay just a head.
-		if (!noBody)
+		if (!(direction == null))
 			grid[rowHead][colHead] = "O";
 
 		grid[rowButt][colButt] = "";
