@@ -53,7 +53,7 @@ public class Snek
 		}
 
 		String[][] board = gridInit();
-		String[][] directions = new String[0][0];
+		String [][] directions = new String[board.length][board[0].length];
 		boolean hasLost = false;
 
 		// package parallel 2 dimensional arrays
@@ -65,7 +65,7 @@ public class Snek
 		// Start Game Loop:
 		while(!hasLost) {
 
-			updateFrame(arrs, direction);
+			updateFrame(arrs);
 			clear();
 			printBoard(board);
 			// checkForLoss will happen in updateFrame method
@@ -266,7 +266,7 @@ public class Snek
 	 *
 	 * Returns an ArrayList containing both the updated main grid and the updated directional grid.
 	 */
-	public static ArrayList<String[][]> updateFrame (ArrayList<String[][]> grids, String direction)
+	public static ArrayList<String[][]> updateFrame (ArrayList<String[][]> grids)
 	{
 		String [][] grid = grids.get(0);
 		String [][] directions = grids.get(1);
