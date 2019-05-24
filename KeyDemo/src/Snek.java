@@ -252,6 +252,7 @@ public class Snek
 		int rowMoney = 0;
 		boolean extend = false;
 		boolean butt = false;
+		boolean noBody = true;
 
 		// Find location of head, butt, and money
 		for (int row = 0; row < grid.length; row++)
@@ -274,9 +275,14 @@ public class Snek
 					colMoney = col;
 					rowMoney = row;
 				}
+				else if ("O".equals(grid[row][col]))
+				{
+					noBody = false;
+				}
 			}
 		}
-
+		if (direction != null && noBody)
+				grid[rowHead][colHead] = "O";
 
 		grid[rowButt][colButt] = "";
 		whereDoesButtGo = directions[colButt][rowButt];
@@ -294,8 +300,8 @@ public class Snek
 			}
 
 			//Snake will stay small until its
-			if (!(direction == null) && extend)
-				grid[rowHead][colHead] = "O";
+			//if (!(direction == null) && extend)
+			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead + 1] = "@";
 		}
@@ -305,19 +311,16 @@ public class Snek
 			if ((colHead - 1) == colMoney && rowHead == rowMoney)
 				extend = true;
 
-			if (!(direction == null) && extend)
-				grid[rowHead][colHead] = "O";
+			//if (!(direction == null) && extend)
+			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead - 1] = "@";
 		}
 		else if ("UP".equals(direction))
 		{
 			directions[rowHead][colHead] = "UP";
-			if (colHead == colMoney && (rowHead - 1) == rowMoney)
-				extend = true;
-
-			if (!(direction == null) && extend)
-				grid[rowHead][colHead] = "O";
+			//if (colHead == colMoney && (rowHead - 1) == rowMoney)
+			//	extend = true;
 
 			grid[rowHead - 1][colHead] = "@";
 		}
@@ -327,8 +330,8 @@ public class Snek
 			if (colHead == colMoney && (rowHead + 1) == rowMoney)
 				extend = true;
 
-			if (!(direction == null) && extend)
-				grid[rowHead][colHead] = "O";
+			//if (!(direction == null) && extend)
+			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead + 1][colHead] = "@";
 		}
