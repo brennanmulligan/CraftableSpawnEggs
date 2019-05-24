@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Snek.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="35" />
+            <state relative-caret-position="391">
+              <caret line="333" column="42" lean-forward="true" selection-start-line="333" selection-start-column="42" selection-end-line="333" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,7 +147,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -178,18 +177,6 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Snek.java</url>
-          <line>314</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/Desktop/jnativehook-2.1.0.jar!/org/jnativehook/GlobalScreen.class" />
     <entry file="jar://$USER_HOME$/Desktop/jnativehook-2.1.0.jar!/org/jnativehook/keyboard/NativeKeyEvent.class" />
@@ -215,8 +202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Snek.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="391">
+          <caret line="333" column="42" lean-forward="true" selection-start-line="333" selection-start-column="42" selection-end-line="333" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -64,14 +64,17 @@ public class Snek
 
 		// Start Game Loop:
 		while(!hasLost) {
-
-			updateFrame(arrs);
+			try {
+				updateFrame(arrs);
+			} catch (ArrayIndexOutOfBoundsException e) {
+				break;
+			}
 			clear();
 			printBoard(board);
 			// checkForLoss will happen in updateFrame method
 			// Thread.sleep(150);
 		}
-		// System.out.println("You Lost!");
+		System.out.println("You Lost!");
 	}
 
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
@@ -123,37 +126,6 @@ public class Snek
 
 	public void nativeKeyReleased(NativeKeyEvent e) {}
 	public void nativeKeyTyped(NativeKeyEvent e) {}
-
-	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
-
-	/*
-	 * Brian Kiss	Pd. 8	5/21/2019
-	 * This is my own work, BK
-	 *
-	 * Description:
-	 * Method for snake that checks if the number exits the array.
-	 */
-	public static boolean outOfBounds (String[][] grid, int row, int col)	//grid of coordinates/position of snek
-	{
-		/*
-		for (int i = 0; i < grid.length - 1; i++)
-		{
-			for (int j = 0; j < grid[i].length - 1; j++)
-			{
-				if (grid[row][col] == null)	//if snek touches null border, returns TRUE for outOfBounds
-				{
-					return true;
-				}
-			}
-		}
-		*/
-
-		// if snek touches null border, returns TRUE for outOfBounds
-		if(grid[row][col] == null)
-			return true;
-		else
-			return false;
-	}
 
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 
@@ -266,7 +238,7 @@ public class Snek
 	 *
 	 * Returns an ArrayList containing both the updated main grid and the updated directional grid.
 	 */
-	public static ArrayList<String[][]> updateFrame (ArrayList<String[][]> grids)
+	public static ArrayList<String[][]> updateFrame (ArrayList<String[][]> grids) throws ArrayIndexOutOfBoundsException
 	{
 		String [][] grid = grids.get(0);
 		String [][] directions = grids.get(1);
