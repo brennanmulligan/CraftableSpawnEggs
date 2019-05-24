@@ -165,15 +165,15 @@ public class Snek
 
 		if (size == 1)	// selects different sizes based upon user answer
 		{
-			grid = new String[7][7];	// +2 to each array for invisible boarder on all sides
+			grid = new String[17][17];	// +2 to each array for invisible boarder on all sides
 		}
 		else if (size == 2)
 		{
-			grid = new String[13][13];
+			grid = new String[21][21];
 		}
 		else if (size == 3)
 		{
-			grid = new String[17][17];
+			grid = new String[29][29];
 		}
 
 		// Isaak Weidman:
