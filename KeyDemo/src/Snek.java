@@ -72,7 +72,7 @@ public class Snek
 			clear();
 			printBoard(board);
 			// checkForLoss will happen in updateFrame method
-			// Thread.sleep(150);
+			Thread.sleep(150);
 		}
 		System.out.println("You Lost!");
 	}
