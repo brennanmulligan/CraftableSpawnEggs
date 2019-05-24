@@ -1,3 +1,13 @@
+/*
+Brennan Mulligan, Isaak Weidman, Brian Kiss
+This is our own work, BM, IW, BK
+Finished 5/23/2019
+EtchASketch operates like an EtchASketch would in real life,
+with the only difference being that you cannot touch the border.
+The user can move the drawing tool around with the arrow keys to
+create their own image inside of the command prompt.
+*/
+
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
@@ -24,7 +34,7 @@ public class EtchaSketch
 
 		/*
 		 * This block of code handles the KeyListener so the user can input
-		 * the direction they want snek to go.
+		 * the direction they want the drawing tool to go.
 		 */
 
 		// Turns off the red output and keeps the cmd clear of gross stuff.
@@ -103,7 +113,7 @@ public class EtchaSketch
 	 *
 	 * Description:
 	 * Is called when user presses a key and only does something if they press an arrow key.
-	 * nativeKeyReleased and nativeKeyTyped don't do anything and only need to be here to make java happy because snek
+	 * nativeKeyReleased and nativeKeyTyped don't do anything and only need to be here to make java happy because etchasketch
 	 * implements NativeKeyListener.
 	 * TODO replace "system.out.println("DIRECTION");" with "updateDirection(direction);"
 	 */
@@ -134,7 +144,7 @@ public class EtchaSketch
 	 * This is my own work, IW
 	 *
 	 * Description:
-	 * Method for snake that creates a 2d array for game. Allows user to choose from 3 sizes (with idiot proofing) and
+	 * Method for etchasketch that creates a 2d array for game. Allows user to choose from 3 sizes (with idiot proofing) and
 	 * creates an array of '0's of that size (with added null buffer).
 	 */
 	public static String[][] gridInit()
@@ -189,7 +199,7 @@ public class EtchaSketch
 				grid[row][col] = " ";
 		}
 
-		// Places the head of the snake in the center of the board
+		// Places the drawing tool in the center of the board
 		center = (grid.length / 2);
 		grid[center][center] = "@";
 
@@ -231,9 +241,9 @@ public class EtchaSketch
 	 * This is my own work, BM
 	 *
 	 * Description:
-	 * Takes in the main snake grid (contains the location of the snake, food, and borders),
+	 * Takes in the main grid (contains the location of the drawing tool and borders),
 	 * the directional grid (contains metadata for the direction each segment of the snake is moving), and the
-	 * directional input from the user to update the position of the snake in the next frame.
+	 * directional input from the user to update the position of the drawing tool in the next frame.
 	 *
 	 * Returns an ArrayList containing both the updated main grid and the updated directional grid.
 	 */
@@ -297,10 +307,6 @@ public class EtchaSketch
 			{
 				extend = true;
 			}
-
-			//Snake will stay small until its
-			//if (!(direction == null) && extend)
-			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead + 1] = "@";
 			grid[rowHead][colHead] = "O";
