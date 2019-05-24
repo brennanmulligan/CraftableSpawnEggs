@@ -252,7 +252,6 @@ public class Snek
 		int rowMoney = 0;
 		boolean extend = false;
 		boolean butt = false;
-		//boolean noBody = true;
 
 		// Find location of head, butt, and money
 		for (int row = 0; row < grid.length; row++)
@@ -275,10 +274,6 @@ public class Snek
 					colMoney = col;
 					rowMoney = row;
 				}
-				/*else if ("O".equals(grid[row][col]))
-				{
-					noBody = false;
-				}*/
 			}
 		}
 
