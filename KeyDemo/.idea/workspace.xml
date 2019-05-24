@@ -24,14 +24,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Snek.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="364" column="1" lean-forward="true" selection-start-line="364" selection-start-column="1" selection-end-line="364" selection-end-column="1" />
+            <state relative-caret-position="-51">
+              <caret line="18" column="35" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#clear#0;class#Snek#0" />
-                <element signature="method#nativeKeyPressed#0;class#Snek#0" />
-                <element signature="method#outOfBounds#0;class#Snek#0" />
-                <element signature="method#setArray#0;class#Snek#0" />
               </folding>
             </state>
           </provider>
@@ -79,30 +75,11 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="KeyDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeyDemo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeyDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeyDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeyDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeyDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeyDemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeyDemo" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
               <item name="KeyDemo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -114,12 +91,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558636156917" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Intellij Projects/CraftableSpawnEggs-Isaak/Snake1.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -178,9 +156,9 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15511727" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15671642" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3290461" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3290461" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3290461" />
       <window_info anchor="bottom" id="Messages" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
@@ -201,19 +179,22 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Snek.java</url>
+          <line>314</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/Desktop/jnativehook-2.1.0.jar!/org/jnativehook/GlobalScreen.class" />
     <entry file="jar://$USER_HOME$/Desktop/jnativehook-2.1.0.jar!/org/jnativehook/keyboard/NativeKeyEvent.class" />
-    <entry file="file://$PROJECT_DIR$/src/Input.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="24" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Input.java" />
     <entry file="file://$PROJECT_DIR$/../../../Intellij Projects/Key Demo/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -235,14 +216,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Snek.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="364" column="1" lean-forward="true" selection-start-line="364" selection-start-column="1" selection-end-line="364" selection-end-column="1" />
+        <state relative-caret-position="-51">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#clear#0;class#Snek#0" />
-            <element signature="method#nativeKeyPressed#0;class#Snek#0" />
-            <element signature="method#outOfBounds#0;class#Snek#0" />
-            <element signature="method#setArray#0;class#Snek#0" />
           </folding>
         </state>
       </provider>

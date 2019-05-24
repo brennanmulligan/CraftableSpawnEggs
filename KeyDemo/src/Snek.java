@@ -281,7 +281,7 @@ public class Snek
 		boolean extend = false;
 		boolean butt = false;
 
-		//String [][] directions = new String[grid.length][grid[0].length];			*Use this in main*
+		// String [][] directions = new String[grid.length][grid[0].length];			*Use this in main*
 
 		// Find location of head, butt, and money
 		for (int row = 0; row < grid.length; row++)
