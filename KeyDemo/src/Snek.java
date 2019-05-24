@@ -319,8 +319,11 @@ public class Snek
 		else if ("UP".equals(direction))
 		{
 			directions[rowHead][colHead] = "UP";
-			//if (colHead == colMoney && (rowHead - 1) == rowMoney)
-			//	extend = true;
+			if (colHead == colMoney && (rowHead - 1) == rowMoney)
+				extend = true;
+
+			//if (!(direction == null) && extend)
+			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead - 1][colHead] = "@";
 		}
