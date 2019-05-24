@@ -291,11 +291,11 @@ public class Snek
 			if ((colHead + 1) == colMoney && rowHead == rowMoney)
 			{
 				extend = true;
-				grid[rowHead][colHead] = "O";
 			}
 
 			//Snake will stay small until its
-			//if (!(direction == null) && extend)
+			if (!(direction == null) && extend)
+				grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead + 1] = "@";
 		}
@@ -305,6 +305,9 @@ public class Snek
 			if ((colHead - 1) == colMoney && rowHead == rowMoney)
 				extend = true;
 
+			if (!(direction == null) && extend)
+				grid[rowHead][colHead] = "O";
+
 			grid[rowHead][colHead - 1] = "@";
 		}
 		else if ("UP".equals(direction))
@@ -313,6 +316,9 @@ public class Snek
 			if (colHead == colMoney && (rowHead - 1) == rowMoney)
 				extend = true;
 
+			if (!(direction == null) && extend)
+				grid[rowHead][colHead] = "O";
+
 			grid[rowHead - 1][colHead] = "@";
 		}
 		else if ("DOWN".equals(direction))
@@ -320,6 +326,9 @@ public class Snek
 			directions[rowHead][colHead] = "DOWN";
 			if ((colHead + 1) == colMoney && (rowHead + 1) == rowMoney)
 				extend = true;
+
+			if (!(direction == null) && extend)
+				grid[rowHead][colHead] = "O";
 
 			grid[rowHead + 1][colHead] = "@";
 		}
