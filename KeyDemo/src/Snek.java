@@ -281,8 +281,8 @@ public class Snek
 				}
 			}
 		}
-		if (direction != null && noBody)
-				grid[rowHead][colHead] = "O";
+		//if (direction != null && noBody)
+		//		grid[rowHead][colHead] = "O";
 
 		grid[rowButt][colButt] = "";
 		whereDoesButtGo = directions[colButt][rowButt];
@@ -304,6 +304,8 @@ public class Snek
 			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead + 1] = "@";
+			grid[rowHead][colHead] = "O";
+
 		}
 		else if ("LEFT".equals(direction))
 		{
@@ -315,6 +317,8 @@ public class Snek
 			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead][colHead - 1] = "@";
+			grid[rowHead][colHead] = "O";
+
 		}
 		else if ("UP".equals(direction))
 		{
@@ -326,6 +330,7 @@ public class Snek
 			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead - 1][colHead] = "@";
+			grid[rowHead][colHead] = "O";
 		}
 		else if ("DOWN".equals(direction))
 		{
@@ -337,6 +342,8 @@ public class Snek
 			//	grid[rowHead][colHead] = "O";
 
 			grid[rowHead + 1][colHead] = "@";
+			grid[rowHead][colHead] = "O";
+
 		}
 
 		//If there IS a butt on the snake, the butt should follow
