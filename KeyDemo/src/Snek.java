@@ -318,7 +318,7 @@ public class Snek
 		// move "@" (the "Head") to new location based on user input
 		if ("RIGHT".equals(direction))
 		{
-			directions[rowHead][colHead] = "Right";
+			directions[rowHead][colHead] = "RIGHT";
 
 			//If the "head" will reach the "Money", the snake should get bigger
 			if ((colHead + 1) == colMoney && rowHead == rowMoney)
@@ -326,25 +326,25 @@ public class Snek
 
 			grid[rowHead][colHead + 1] = "@";
 		}
-		else if (direction.equals("Left"))
+		else if ("LEFT".equals(direction))
 		{
-			directions[rowHead][colHead] = "Left";
+			directions[rowHead][colHead] = "LEFT";
 			if ((colHead - 1) == colMoney && rowHead == rowMoney)
 				extend = true;
 
 			grid[rowHead][colHead - 1] = "@";
 		}
-		else if (direction.equals("Up"))
+		else if ("UP".equals(direction))
 		{
-			directions[rowHead][colHead] = "Up";
+			directions[rowHead][colHead] = "UP";
 			if (colHead == colMoney && (rowHead - 1) == rowMoney)
 				extend = true;
 
 			grid[rowHead - 1][colHead] = "@";
 		}
-		else if (direction.equals("Down"))
+		else if ("DOWN".equals(direction))
 		{
-			directions[rowHead][colHead] = "Down";
+			directions[rowHead][colHead] = "DOWN";
 			if ((colHead + 1) == colMoney && (rowHead + 1) == rowMoney)
 				extend = true;
 
@@ -355,16 +355,16 @@ public class Snek
 		//unless it needs to extend from reaching money
 		if (butt && !extend)
 		{
-			if (whereDoesButtGo.equals("Right"))
+			if (whereDoesButtGo.equals("RIGHT"))
 				grid[rowButt][colButt + 1] = "0";
 
-			else if (whereDoesButtGo.equals("Left"))
+			else if (whereDoesButtGo.equals("LEFT"))
 				grid[rowButt][colButt - 1] = "0";
 
-			else if (whereDoesButtGo.equals("Up"))
+			else if (whereDoesButtGo.equals("UP"))
 				grid[rowButt - 1][colButt] = "0";
 
-			else if (whereDoesButtGo.equals("Down"))
+			else if (whereDoesButtGo.equals("DOWN"))
 				grid[rowButt + 1][colButt] = "0";
 		}
 
