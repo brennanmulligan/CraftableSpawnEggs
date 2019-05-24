@@ -4,12 +4,20 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Snek
 		implements NativeKeyListener {
-
+	
+	// Directional data for the direction last input by the user.
+	static String direction = null;
+	
 	public static void main(String[] args)
 			throws InterruptedException {
 		
@@ -44,22 +52,24 @@ public class Snek
 			System.err.println("NativeHookException");
 		}
 		
-		
-		String direction = null;
+		String[][] board = gridInit();
+		String[][] directions = new String[0][0];
 		boolean hasLost = false;
-		String[][] baord;
-		//board = setArray(board);
 		
+		// package parallel 2 dimensional arrays
+		ArrayList<String[][]> arrs = new ArrayList<>();
 		
-
+		arrs.add(board);
+		arrs.add(directions);
+		
 		// Start Game Loop:
-		while(!hasLost) // TODO remove "true" later
-		{
-			// updateFrame(board, direction);
+		while(!hasLost) {
+			
+			updateFrame(arrs, direction);
 			clear();
-			// printBoard(board);
-			// hasLost = outOfBounds();
-			Thread.sleep(150);
+			printBoard(board);
+			// checkForLoss will happen in updateFrame method
+			// Thread.sleep(150);
 		}
 		// System.out.println("You Lost!");
 	}
@@ -69,8 +79,6 @@ public class Snek
 	/*
 	 * Checks what os the program is being run on. if it is run on windows, a new command is created that clears the
 	 * command prompt when called. Otherwise the pre-existing command is used.
-	 *
-	 * NOT OUR CODE, FOUND ON INTERNET
 	 */
 	public static void clear() {
 		
@@ -87,32 +95,271 @@ public class Snek
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 	
 	/*
+	 * Isaak Weidman, Brennan Mulligan	Pd.8	5/23/2019
+	 * This is my own work, IW
+	 * This is my own work, BM
+	 *
+	 * Description:
 	 * Is called when user presses a key and only does something if they press an arrow key.
 	 * nativeKeyReleased and nativeKeyTyped don't do anything and only need to be here to make java happy because snek
 	 * implements NativeKeyListener.
 	 * TODO replace "system.out.println("DIRECTION");" with "updateDirection(direction);"
-	 *
-	 * Coded by:
-	 * Brennan Mulligan and Isaak Weidman
 	 */
 	@Override
 	public void nativeKeyPressed(NativeKeyEvent e)
 	{
 		if(e.getKeyCode() == NativeKeyEvent.VC_RIGHT)
-			System.out.println("RIGHT");
+			direction = "RIGHT";
 		
 		else if (e.getKeyCode() == NativeKeyEvent.VC_LEFT)
-			System.out.println("LEFT");
+			direction = "LEFT";
 		
 		else if (e.getKeyCode() == NativeKeyEvent.VC_UP)
-			System.out.println("UP");
+			direction = "UP";
 		
 		else if (e.getKeyCode() == NativeKeyEvent.VC_DOWN)
-			System.out.println("DOWN");
+			direction = "DOWN";
 	}
 	
 	public void nativeKeyReleased(NativeKeyEvent e) {}
 	public void nativeKeyTyped(NativeKeyEvent e) {}
 	
 	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/*
+	 * Brian Kiss	Pd. 8	5/21/2019
+	 * This is my own work, BK
+	 *
+	 * Description:
+	 * Method for snake that checks if the number exits the array.
+	 */
+	public static boolean outOfBounds (String[][] grid, int row, int col)	//grid of coordinates/position of snek
+	{
+		/*
+		for (int i = 0; i < grid.length - 1; i++)
+		{
+			for (int j = 0; j < grid[i].length - 1; j++)
+			{
+				if (grid[row][col] == null)	//if snek touches null border, returns TRUE for outOfBounds
+				{
+					return true;
+				}
+			}
+		}
+		*/
+		
+		// if snek touches null border, returns TRUE for outOfBounds
+		if(grid[row][col] == null)
+			return true;
+		else
+			return false;
+	}
+	
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/*
+	 * Brian Kiss, Isaak Weidman	Pd. 8	5/21/2019
+	 * This is my own work, BK
+	 * This is my own work, IW
+	 *
+	 * Description:
+	 * Method for snake that creates a 2d array for game. Allows user to choose from 3 sizes (with idiot proofing) and
+	 * creates an array of '0's of that size (with added null buffer).
+	 */
+	public static String[][] gridInit()
+	{
+		// Brian Kiss:
+		Scanner reader = new Scanner (System.in);
+		int size = 0;
+		int center;
+		boolean invalid = true;
+		String[][] grid = new String[0][0];
+		
+		while (invalid == true)
+		{
+			try
+			{
+				System.out.println("Choose size of game.\n\n1\tSmall\n2\tMedium\n3\tLarge");
+				size = reader.nextInt();
+				invalid = false;
+			}
+			catch (InputMismatchException e)
+			{
+				System.out.println("Invalid value!");
+				reader.next(); // this consumes the invalid token
+				continue;
+			}
+		}
+		
+		if (size == 1)	// selects different sizes based upon user answer
+		{
+			grid = new String[7][7];	// +2 to each array for invisible boarder on all sides
+		}
+		else if (size == 2)
+		{
+			grid = new String[13][13];
+		}
+		else if (size == 3)
+		{
+			grid = new String[17][17];
+		}
+		
+		// Isaak Weidman:
+		
+		// Fills entire array with null values
+		for(String[] sa: grid) {
+			for (String s : sa)
+				s = null;
+		}
+		
+		// Leaves a border of null values around the array and makes the rest spaces.
+		for(int row = 1; row < (grid.length - 1); row++) {
+			for (int col = 1; col < (grid[0].length - 1); col++)
+				grid[row][col] = " ";
+		}
+		
+		// Places the head of the snake in the center of the board
+		center = (grid.length / 2);
+		grid[center][center] = "@";
+		
+		return grid;
+	}
+	
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/*
+	 * Brian Kiss	Pd. 8	5/21/2019
+	 * This is my own work, BK
+	 *
+	 * Description:
+	 * Initializes 2d array grid with a buffer of null around the outside, and the inside to '0'.
+	 */
+	public static String[][] setArray (String[][] grid)
+	{
+		for (int i = 0; i < grid.length; i++)
+		{
+			for (int j = 0; j < grid[i].length; j++)
+			{
+				if ( i == 0 || i == grid.length - 1)
+					grid[i][j] = null;
+				else
+				{
+					if ( j == 0 || j == grid[i].length - 1)
+						grid[i][j] = null;
+					else
+						grid[i][j] = "0";
+				}
+			}
+		}
+		return grid;
+	}
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/*
+	 * Brennan Mulligan	Pd.8	5/23/2019
+	 * This is my own work, BM
+	 *
+	 * Description:
+	 * Takes in the main snake grid (contains the location of the snake, food, and borders),
+	 * the directional grid (contains metadata for the direction each segment of the snake is moving), and the
+	 * directional input from the user to update the position of the snake in the next frame.
+	 *
+	 * Returns an ArrayList containing both the updated main grid and the updated directional grid.
+	 */
+	public static ArrayList<String[][]> updateFrame (ArrayList<String[][]> grids, String direction)
+	{
+		String [][] grid = grids.get(0);
+		String [][] directions = grids.get(1);
+		
+		int colHead = 0;
+		int rowHead = 0;
+		int colTail = 0;
+		int rowTail = 0;
+		int colMoney = 0;
+		int rowMoney = 0;
+		boolean extend = false;
+		//String [][] directions = new String[grid.length][grid[0].length];			*Use this in main*
+		
+		
+		// Find location of head, tail, and food (money)
+		for (int row = 0; row < grid.length; row++)
+		{
+			for (int col = 0; col < grid[row].length; col++)
+			{
+				if ("@".equals(grid[row][col]))
+				{
+					colHead = col;
+					rowHead = row;
+				}
+				else if ("0".equals(grid[row][col]))
+				{
+					colTail = col;
+					rowTail = row;
+				}
+				else if ("$".equals(grid[row][col]))
+				{
+					colMoney = col;
+					rowMoney = row;
+				}
+			}
+		}
+		
+		// check if snake gets longer
+		if (colHead == colMoney && rowHead == rowMoney)
+		{
+			extend = true;
+		}
+		
+		// move "@" to new location based on user input
+		
+		
+		if ("RIGHT".equals(direction)) {
+			grid[rowHead][colHead] = "0";
+			grid[rowHead][colHead + 1] = "@";
+		}
+		
+		else if("LEFT".equals(direction)) {
+			grid[rowHead][colHead] = "0";
+			grid[rowHead][colHead - 1] = "@";
+		}
+		
+		else if("UP".equals(direction)) {
+			grid[rowHead][colHead] = "0";
+			grid[rowHead - 1][colHead] = "@";
+		}
+		
+		else if("DOWN".equals(direction)) {
+			grid[rowHead][colHead] = "0";
+			grid[rowHead + 1][colHead] = "@";
+		}
+		
+		// package up edited arrays and return
+		grids.set(0, grid);
+		grids.set(1, directions);
+		
+		return grids;
+	}
+	
+	//=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+	
+	/*
+	 * Isaak Weidman	Pd.8 5/23/2019
+	 * This is my own work, IW
+	 *
+	 * Description:
+	 * Takes in the main grid and formats / prints the board to the screen.
+	 */
+	public static void printBoard(String[][] board){
+		
+		for(String[] sa: board) {
+			for(String s: sa) {
+				if (s == null)
+					System.out.print("# ");
+				else
+					System.out.print(s + " ");
+			}
+			// Go to next line of the array
+			System.out.println();
+		}
+	}
 }
