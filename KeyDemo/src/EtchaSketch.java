@@ -4,7 +4,6 @@ import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,7 +11,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Snek
+public class EtchaSketch
 		implements NativeKeyListener {
 
 	// Directional data for the direction last input by the user.
@@ -38,7 +37,7 @@ public class Snek
 		Thread thread = new Thread() {
 			@Override
 			public void run() {
-				GlobalScreen.addNativeKeyListener(new Snek());
+				GlobalScreen.addNativeKeyListener(new EtchaSketch());
 			}
 		};
 
