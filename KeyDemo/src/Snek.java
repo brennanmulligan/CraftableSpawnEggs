@@ -280,6 +280,7 @@ public class Snek
 		int rowMoney = 0;
 		boolean extend = false;
 		boolean butt = false;
+		boolean noBody = true;
 
 		// String [][] directions = new String[grid.length][grid[0].length];			*Use this in main*
 
@@ -304,13 +305,17 @@ public class Snek
 					colMoney = col;
 					rowMoney = row;
 				}
+				else if ("O".equals(grid[row][col]))
+				{
+					noBody = false;
+				}
 			}
 		}
 
-		//if (colHead == colMoney && rowHead == rowMoney)
-		//	extend = true;
+		//If the player has not moved yet, the snake will stay just a head.
+		if (!noBody)
+			grid[rowHead][colHead] = "O";
 
-		grid[rowHead][colHead] = "O";
 		grid[rowButt][colButt] = "";
 		whereDoesButtGo = directions[colButt][rowButt];
 		directions[rowButt][colButt] = "";
