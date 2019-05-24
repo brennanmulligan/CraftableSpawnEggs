@@ -277,9 +277,6 @@ public class Snek
 			}
 		}
 
-		//If the player has not moved yet, the snake will stay just a head.
-		if (!(direction == null))
-			grid[rowHead][colHead] = "O";
 
 		grid[rowButt][colButt] = "";
 		whereDoesButtGo = directions[colButt][rowButt];
@@ -292,7 +289,13 @@ public class Snek
 
 			//If the "head" will reach the "Money", the snake should get bigger
 			if ((colHead + 1) == colMoney && rowHead == rowMoney)
+			{
 				extend = true;
+				grid[rowHead][colHead] = "O";
+			}
+
+			//Snake will stay small until its
+			//if (!(direction == null) && extend)
 
 			grid[rowHead][colHead + 1] = "@";
 		}
