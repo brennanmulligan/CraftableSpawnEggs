@@ -316,7 +316,7 @@ public class Snek
 		directions[rowButt][colButt] = "";
 
 		// move "@" (the "Head") to new location based on user input
-		if (direction.equals("Right"))
+		if ("RIGHT".equals(direction))
 		{
 			directions[rowHead][colHead] = "Right";
 
